@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import deliveryGps.Gps;
+import deliveryGps.Drone;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -37,16 +38,22 @@ public class TestGPS {
     }
     @Test
     
-    public void crearGps(){
+   public void crearGps(){
     
         Gps gps1 = new Gps("");
         
         assertNotNull(gps1);
+          
         
+    }
+    
+   @Test
+    public void crearDrone(){
+    
+        Drone drone = new Drone("");
         
-        
-        
-     
+        assertNotNull(drone);
+          
         
     }
     // TODO add test methods here.

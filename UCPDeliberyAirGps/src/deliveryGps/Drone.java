@@ -9,10 +9,9 @@ package deliveryGps;
  *
  * @author Juan Carlos
  */
-public class Gps {
+public class Drone {
     
-    
-    public Gps(String path){
+    public Drone(String gps) {
         
     }
     
