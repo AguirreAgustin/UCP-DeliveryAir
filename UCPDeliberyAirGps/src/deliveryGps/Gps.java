@@ -5,6 +5,14 @@
  */
 package deliveryGps;
 
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.TimeZone;
+
 /**
  *
  * @author Juan Carlos
@@ -15,6 +23,7 @@ public class Gps {
     private String type;
     private String latitud;
     private String longitud;
+    private GregorianCalendar time;
     private String timeUTC;
     private double speed;
     
@@ -24,11 +33,31 @@ public class Gps {
         this.tryParser();
     }
     
+    //From page http://aprs.gids.nl/nmea/
     private void tryParser(){
-        //String parser = "$GPRMC,150745.532,V,3354.928,N,07602.498,W,81.4,2.42,070419,,E*43";
-        String path = this.getPath();
-        String[] pathSplit = path.split(",");
-        this.setType(pathSplit[0].replace("$GP",""));
+        String[] pathSplit = this.getPath().split(",");
+        String type = pathSplit[0].replace("$GP","");
+        this.setType(type);
+        if(type.equals("RMC")){
+            //Parser Date Time to GregorianCalendar
+            String hora = pathSplit[1].substring(0,2);
+            String minuto = pathSplit[1].substring(2,4);
+            String segundo = pathSplit[1].substring(4,6);
+            String milisegundos = pathSplit[1].substring(7);
+            Date date = new Date();
+            date.setDate(Integer.parseInt(pathSplit[9].substring(0,2)));
+            date.setMonth(Integer.parseInt(pathSplit[9].substring(2,4)));
+            date.setYear(Integer.parseInt(pathSplit[9].substring(4)));
+            GregorianCalendar calendar = new GregorianCalendar(Locale.US);
+            calendar.setGregorianChange(date);
+            calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(hora)); 
+            calendar.set(Calendar.MINUTE, Integer.parseInt(minuto));
+            calendar.set(Calendar.SECOND, Integer.parseInt(segundo));
+            calendar.set(Calendar.MILLISECOND, Integer.parseInt(milisegundos));
+            
+            this.setTime(calendar);
+        }
+        //parser TimeUTC
     }
     
     /* geters y seters  */
@@ -56,12 +85,12 @@ public class Gps {
         this.longitud = longitud;
     }
 
-    public String getTimeUTC() {
-        return timeUTC;
+    public GregorianCalendar getTime() {
+        return time;
     }
 
-    private void setTimeUTC(String timeUTC) {
-        this.timeUTC = timeUTC;
+    private void setTime(GregorianCalendar time) {
+        this.time = time;
     }
 
     public double getSpeed() {
@@ -79,5 +108,14 @@ public class Gps {
     private void setType(String type) {
         this.type = type;
     }
+    
+    public String getTimeUTC() {
+        //Convert date into UTC
+        SimpleDateFormat dateFormatter = new SimpleDateFormat(
+                "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        String strUTCDate = dateFormatter.format(this.getTime().getTime());
+        return strUTCDate;
+    }
+
     
 }

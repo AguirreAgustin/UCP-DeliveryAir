@@ -31,6 +31,16 @@ public class TestGPS {
         assertEquals(type, gps.getType());
     }
     
+    @Test
+    public void parserPathCompletoTimeUTC(){
+        String parser = "$GPRMC,130745.532,V,3354.928,N,07602.498,W,81.4,2.42,070419,,E*43";
+        String timeUTC = "2019-04-07T13:07:45.532Z";
+
+        //CREATE GPS
+        Gps gps = new Gps(parser);
+        assertEquals(timeUTC, gps.getTimeUTC());
+    }
+    
     @BeforeClass
     public static void setUpClass() {
     }
