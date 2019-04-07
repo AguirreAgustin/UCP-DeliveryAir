@@ -5,14 +5,35 @@
  */
 package deliveryGps;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Juan Carlos
  */
 public class Drone {
     
-    public Drone(String gps) {
-        
+    private ArrayList<Gps> gps;
+    
+    public Drone() {
+        this.setGps(new ArrayList());
     }
+    
+    private void setGps(ArrayList pGps){
+        this.gps = pGps;
+    }
+    
+    public ArrayList<Gps> getGps(){
+        return this.gps;
+    }
+    
+    public void agregarGPS(Gps pGps){
+        this.getGps().add(pGps);
+    }
+    
+    
+    
+    /*public obtenerListaPath(){
+    }*/
     
 }

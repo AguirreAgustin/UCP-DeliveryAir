@@ -50,11 +50,22 @@ public class TestGPS {
    @Test
     public void crearDrone(){
     
-        Drone drone = new Drone("");
+        Drone drone = new Drone();
         
         assertNotNull(drone);
-          
+   
+    }
+    
+     @Test
+    public void agregarGPS(){
         
+        Gps gps = new Gps("");
+        Drone drone = new Drone();
+        
+        drone.agregarGPS(gps);
+        
+         assertEquals(drone.getGps().size(), 1);
+   
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
