@@ -1,9 +1,13 @@
 /UCPDeliberyAirGps/build/
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
+<<<<<<< HEAD
 **/nbproject/Package-*.bash
 build/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+=======
+**/nbproject/Package-*.bash
+>>>>>>> fe6768dd88f27f26f7278af11b6741083daef605
