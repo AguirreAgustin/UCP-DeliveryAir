@@ -36,34 +36,5 @@ public class Drone {
     
     /*public obtenerListaPath(){
     }*/
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    private String entregaIdd;
+    private String entregaId;
 }
