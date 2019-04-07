@@ -20,6 +20,15 @@ public class TestGPS {
     public TestGPS() {
     }
     
+    @Test
+    public void parserPathCompletoType(){
+        String parser = "$GPRMC,150745.532,V,3354.928,N,07602.498,W,81.4,2.42,070419,,E*43";
+        String type = "RMC";
+        //CREATE GPS
+        Gps gps = new Gps(parser);
+        assertEquals(type, gps.getType());
+    }
+    
     @BeforeClass
     public static void setUpClass() {
     }
