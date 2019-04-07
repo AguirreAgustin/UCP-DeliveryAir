@@ -33,12 +33,24 @@ public class TestGPS {
     
     @Test
     public void parserPathCompletoTimeUTC(){
-        String parser = "$GPRMC,130745.532,V,3354.928,N,07602.498,W,81.4,2.42,070419,,E*43";
+        String parser = "$GPRMC,130745.532,V,3354.928,S,07602.498,W,81.4,2.42,070419,,E*43";
         String timeUTC = "2019-04-07T13:07:45.532Z";
 
         //CREATE GPS
         Gps gps = new Gps(parser);
         assertEquals(timeUTC, gps.getTimeUTC());
+    }
+    
+    @Test
+    public void parserPathCompletoLatLng(){
+        String parser = "$GPRMC,130745.532,V,2728.695,S,05849.001,W,81.4,2.42,070419,,E*43";
+        String lat = "-27.47825";
+        String lng = "-58.816685";
+
+        //CREATE GPS
+        Gps gps = new Gps(parser);
+        assertEquals(lat, gps.getLatitud());
+        assertEquals(lng, gps.getLongitud());
     }
     
     @BeforeClass

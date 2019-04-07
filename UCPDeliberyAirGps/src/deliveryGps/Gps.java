@@ -35,9 +35,11 @@ public class Gps {
     
     //From page http://aprs.gids.nl/nmea/
     private void tryParser(){
+        //String parser = "$GPRMC,130745.532,V,3354.928,N,07602.498,W,81.4,2.42,070419,,E*43";
         String[] pathSplit = this.getPath().split(",");
         String type = pathSplit[0].replace("$GP","");
         this.setType(type);
+        //parser TimeUTC
         if(type.equals("RMC")){
             //Parser Date Time to GregorianCalendar
             String hora = pathSplit[1].substring(0,2);
@@ -56,8 +58,41 @@ public class Gps {
             calendar.set(Calendar.MILLISECOND, Integer.parseInt(milisegundos));
             
             this.setTime(calendar);
+            
+           //parser lat y lng to Degrees
+           this.setLatitud(Float.toString(this.getDecimalLatitude()));
+           this.setLongitud(Float.toString(this.getDecimalLongitude()));
+           
         }
-        //parser TimeUTC
+    }
+    
+    
+    public float getDecimalLatitude() {
+        String[] pathSplit = this.getPath().split(",");
+        if(this.type.equals("RMC")){
+            String lat = pathSplit[3], NS = pathSplit[4];
+            float med = Float.parseFloat(lat.substring(2))/60.0f;
+            med +=  Float.parseFloat(lat.substring(0, 2));
+            if(NS.startsWith("S")) {
+                    med = -med;
+            }
+            return med;
+        }
+        return -1;
+    }
+
+    public float getDecimalLongitude() {
+        String[] pathSplit = this.getPath().split(",");
+        if(this.type.equals("RMC")){
+            String lon = pathSplit[5], WE = pathSplit[6];
+            float med = Float.parseFloat(lon.substring(3))/60.0f;
+            med +=  Float.parseFloat(lon.substring(0, 3));
+            if(WE.startsWith("W")) {
+                    med = -med;
+            }
+            return med;
+        }
+        return -1;
     }
     
     /* geters y seters  */
