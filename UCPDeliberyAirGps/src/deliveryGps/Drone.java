@@ -5,6 +5,7 @@
  */
 package deliveryGps;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -15,7 +16,7 @@ public class Drone {
     
     private ArrayList<Gps> gps;
     
-    public Drone() {
+    public Drone(Gps pGps) {
         this.setGps(new ArrayList());
     }
 
@@ -32,9 +33,13 @@ public class Drone {
         this.getGps().add(pGps);
     }
     
+    public String[] obtenerListadoPath(){
+        String listaPath[] = null;
+        for(String unPath : Gps.getPath()){
+            listaPath = unPath;
+        }
+        return listaPath;
+    }
     
-    
-    /*public obtenerListaPath(){
-    }*/
     
 }

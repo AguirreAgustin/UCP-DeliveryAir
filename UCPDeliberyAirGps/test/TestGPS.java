@@ -60,7 +60,9 @@ public class TestGPS {
     
     @Test
     public void crearDrone(){
-         Drone drone = new Drone();
+        Gps gps = new Gps("");
+      
+         Drone drone = new Drone(gps);
         
         assertNotNull(drone);
    
@@ -70,11 +72,27 @@ public class TestGPS {
     public void agregarGPS(){
         
         Gps gps = new Gps("");
-        Drone drone = new Drone();
+       
+        Drone drone = new Drone(gps);
+        
+        drone.agregarGPS(gps);
+      
+        
+         assertEquals(drone.getGps().size(), 1);
+   
+    }
+    
+     @Test
+    public void obtenerListadoPath(){
+        
+        Gps gps = new Gps("");
+        
+        Drone drone = new Drone(gps);
         
         drone.agregarGPS(gps);
         
-         assertEquals(drone.getGps().size(), 1);
+        drone.obtenerListadoPath();
+         assertEquals(drone.obtenerListadoPath().size(), 1);
    
     }
     // TODO add test methods here.
@@ -82,4 +100,6 @@ public class TestGPS {
     //
     // @Test
     // public void hello() {}
+
+
 }
