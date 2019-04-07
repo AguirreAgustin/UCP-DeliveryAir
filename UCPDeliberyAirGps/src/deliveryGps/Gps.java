@@ -11,9 +11,18 @@ package deliveryGps;
  */
 public class Gps {
     
+    private String path;
     
     public Gps(String path){
-        
+        setPath(path);
     }
     
+    /* geters y seters  */
+    private void setPath(String path){
+        this.path = path;
+    }
+    
+    public String getPath(){
+        return this.path;
+    }
 }
