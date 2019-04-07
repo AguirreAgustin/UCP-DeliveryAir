@@ -18,7 +18,8 @@ public class Drone {
     public Drone() {
         this.setGps(new ArrayList());
     }
-    
+
+  
     private void setGps(ArrayList pGps){
         this.gps = pGps;
     }
