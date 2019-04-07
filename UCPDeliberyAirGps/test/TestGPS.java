@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import deliveryGps.Gps;
 import deliveryGps.Drone;
+import deliveryGps.Gps;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -38,19 +39,28 @@ public class TestGPS {
     }
     @Test
     
-   public void crearGps(){
+    public void crearGps(){
     
         Gps gps1 = new Gps("");
         
-        assertNotNull(gps1);
-          
+        assertNotNull(gps1);      
+        
+     
         
     }
     
-   @Test
-    public void crearDrone(){
+    @Test
+    public void crearGpsConPath(){
     
-        Drone drone = new Drone();
+        Gps gpsConPathl = new Gps("$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
+        assertEquals(gpsConPathl.getPath(), "$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
+
+       
+    }
+    
+    @Test
+    public void crearDrone(){
+         Drone drone = new Drone();
         
         assertNotNull(drone);
    
