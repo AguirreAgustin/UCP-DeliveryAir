@@ -52,6 +52,15 @@ public class TestGPS {
         assertEquals(lat, gps.getLatitud());
         assertEquals(lng, gps.getLongitud());
     }
+    @Test
+    public void parserPathCompletoSpeed(){
+        String parser = "$GPRMC,130745.532,V,2728.695,S,05849.001,W,81.4,2.42,070419,,E*43";
+        double speed = 81.4;
+
+        //CREATE GPS
+        Gps gps = new Gps(parser);
+        assertEquals(speed, gps.getSpeed(),1);
+    }
     
     @BeforeClass
     public static void setUpClass() {

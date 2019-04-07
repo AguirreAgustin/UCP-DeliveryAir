@@ -24,7 +24,6 @@ public class Gps {
     private String latitud;
     private String longitud;
     private GregorianCalendar time;
-    private String timeUTC;
     private double speed;
     
     
@@ -63,6 +62,8 @@ public class Gps {
            this.setLatitud(Float.toString(this.getDecimalLatitude()));
            this.setLongitud(Float.toString(this.getDecimalLongitude()));
            
+           //parser Speed
+           this.setSpeed(Double.parseDouble(pathSplit[7]));
         }
     }
     
