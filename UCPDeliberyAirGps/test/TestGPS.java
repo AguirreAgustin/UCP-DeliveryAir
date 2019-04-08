@@ -85,14 +85,16 @@ public class TestGPS {
     public void obtenerListadoPath(){
         
         Gps gps = new Gps("uno");
-        Gps gps1 = new Gps("uno");
+        //Gps gps1 = new Gps("uno");
+      
         
         Drone drone = new Drone(gps);
-        drone.agregarGPS(gps1);
+        //drone.agregarGPS(gps1);
+       
         
         
         //assertEquals(drone.obtenerListadoPath().size(), null);
-         assertNotNull(drone.obtenerListadoPath());
+         assertEquals(drone.obtenerListadoPath(), 1);
    
     }
     // TODO add test methods here.
