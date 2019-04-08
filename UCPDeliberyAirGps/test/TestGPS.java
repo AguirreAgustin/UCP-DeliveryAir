@@ -98,13 +98,6 @@ public class TestGPS {
        
     }
     
-    @Test
-    public void crearDrone(){
-         Drone drone = new Drone();
-        
-        assertNotNull(drone);
-   
-    }
     
      @Test
     public void agregarGPS(){
