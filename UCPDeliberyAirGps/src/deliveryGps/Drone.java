@@ -74,5 +74,9 @@ public class Drone {
         return posicionActual;
     }
 
+    public boolean obtenerEstadoDeEntrega(){
+        
+        return this.getEstado();
     
+    }
 }
