@@ -124,12 +124,32 @@ public class TestGPS {
         
         for(i=0;i< drone.getGps().size();i++){
             assertNotNull(drone.getGps().get(i).getLatitud());
-            
+            System.out.println(i+1 + " : " +drone.getGps().get(i).getPath());
             assertNotNull(drone.getGps().get(i).getLongitud());
         }
         
         
         
+    }
+    @Test
+    public void obtenerPosicionActual(){
+        
+        Gps gpsConPathl = new Gps("$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
+        Gps gpsUltimo = new Gps("$GPRMC,160657.949,V,3354.929,N,08202.496,W,93.8,1.19,080419,,E*4B");
+        Drone drone = new Drone();
+        int i;
+       
+        for(i=0;i<10;i++){
+            drone.agregarGPS(gpsConPathl);
+        }
+        drone.agregarGPS(gpsUltimo);
+        String posicionActual = ""; 
+        String posicionEsperada = gpsUltimo.getPath();
+        for(i=0;i< drone.getGps().size();i++){
+            posicionActual = drone.getGps().get(i).getPath();
+        }
+        assertEquals(posicionActual,posicionEsperada);
+    
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
