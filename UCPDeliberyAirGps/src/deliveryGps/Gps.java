@@ -46,11 +46,11 @@ public class Gps {
             String segundo = pathSplit[1].substring(4,6);
             String milisegundos = pathSplit[1].substring(7);
             Date date = new Date();
-            date.setDate(Integer.parseInt(pathSplit[9].substring(0,2)));
             date.setMonth(Integer.parseInt(pathSplit[9].substring(2,4)));
             date.setYear(Integer.parseInt(pathSplit[9].substring(4)));
             GregorianCalendar calendar = new GregorianCalendar(Locale.US);
             calendar.setGregorianChange(date);
+            calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(pathSplit[9].substring(0,2))); 
             calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(hora)); 
             calendar.set(Calendar.MINUTE, Integer.parseInt(minuto));
             calendar.set(Calendar.SECOND, Integer.parseInt(segundo));
@@ -143,6 +143,15 @@ public class Gps {
 
     private void setType(String type) {
         this.type = type;
+    }
+    
+    public String getTimeUTC() {
+        //Convert date into UTC
+        GregorianCalendar gc = this.getTime();
+        SimpleDateFormat dateFormatter = new SimpleDateFormat(
+                "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        String strUTCDate = dateFormatter.format(this.getTime().getTime());
+        return strUTCDate;
     }
     
     

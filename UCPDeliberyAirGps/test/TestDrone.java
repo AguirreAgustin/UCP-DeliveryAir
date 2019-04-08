@@ -42,7 +42,7 @@ public class TestDrone {
     public void generarEntrega(){
         
         Gps gps = new Gps("");
-        Drone drone = new Drone();
+        Drone drone = new Drone(gps);
         
         drone.generarEntrega("id ", "lat", "long");
         assertNotNull(drone.getId());
@@ -52,7 +52,8 @@ public class TestDrone {
     
     @Test
     public void crearDrone(){
-         Drone drone = new Drone();
+        Gps gps = new Gps("");
+        Drone drone = new Drone(gps);
         
         assertNotNull(drone);
    
@@ -83,7 +84,7 @@ public class TestDrone {
     public void agregarGPS(){
         
         Gps gps = new Gps("");
-        Drone drone = new Drone();
+        Drone drone = new Drone(gps);
         
         drone.agregarGPS(gps);
         
@@ -95,7 +96,7 @@ public class TestDrone {
         
         Gps gpsConPathl = new Gps("$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
         
-        Drone drone = new Drone();
+        Drone drone = new Drone(gpsConPathl);
         int i;
        
         for(i=0;i<10;i++){
@@ -117,7 +118,7 @@ public class TestDrone {
         
         Gps gpsConPathl = new Gps("$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
         Gps gpsUltimo = new Gps("$GPRMC,160657.949,V,3354.929,N,08202.496,W,93.8,1.19,080419,,E*4B");
-        Drone drone = new Drone();
+        Drone drone = new Drone(gpsConPathl);
         int i;
        
         for(i=0;i<10;i++){
