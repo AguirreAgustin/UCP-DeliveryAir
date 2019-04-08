@@ -37,6 +37,6 @@ public class Drone {
     /*public obtenerListaPath(){
     }*/
     
-    /* prueba de configuracion de usuario*/
+    /* prueba de configuracion de usuarios*/
     private String entregaId;
 }
