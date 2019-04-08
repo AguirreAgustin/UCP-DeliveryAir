@@ -37,6 +37,19 @@ public class TestDrone {
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void generarEntrega(){
+        
+        Gps gps = new Gps("");
+        Drone drone = new Drone();
+        
+        drone.generarEntrega("id ", "lat", "long");
+        assertNotNull(drone.getId());
+        assertNotNull(drone.getLatitud());
+        assertNotNull(drone.getLongitud());
+    }
+    
     @Test
     public void crearDrone(){
          Drone drone = new Drone();
@@ -53,7 +66,7 @@ public class TestDrone {
         
         drone.agregarGPS(gps);
         
-         assertEquals(drone.getGps().size(), 1);
+        assertEquals(drone.getGps().size(), 1);
    
     }
     // TODO add test methods here.
