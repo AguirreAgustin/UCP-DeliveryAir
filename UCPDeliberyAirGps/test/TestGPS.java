@@ -94,7 +94,7 @@ public class TestGPS {
         
         
         //assertEquals(drone.obtenerListadoPath().size(), null);
-         assertEquals(drone.obtenerListadoPath(), 1);
+         assertEquals(drone.obtenerListadoPath().size(), null);
    
     }
     // TODO add test methods here.
