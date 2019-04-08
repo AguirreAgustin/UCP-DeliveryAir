@@ -1,8 +1,16 @@
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
 **/nbproject/Package-*.bash
+<<<<<<< HEAD
 **/build/
 **/nbbuild/
 **/dist/
 **/nbdist/
 **/*.nb-gradle/
+=======
+*/build/
+*/nbbuild/
+*/dist/
+*/nbdist/
+*/.nb-gradle/
+>>>>>>> 0051ad18084b5cb6fb8d1eeb6e57c5a1fe8ba65e
