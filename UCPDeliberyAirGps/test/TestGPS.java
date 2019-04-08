@@ -34,7 +34,7 @@ public class TestGPS {
     @Test
     public void parserPathCompletoTimeUTC(){
         String parser = "$GPRMC,130745.532,V,3354.928,S,07602.498,W,81.4,2.42,070419,,E*43";
-        String timeUTC = "2019-04-07T13:07:45.532Z";
+        String timeUTC = "2019-04-08T13:07:45.532Z";
 
         //CREATE GPS
         Gps gps = new Gps(parser);
@@ -116,6 +116,27 @@ public class TestGPS {
         
          assertEquals(drone.getGps().size(), 1);
    
+    }
+    @Test
+    public void agregarVariosGps(){
+        
+        Gps gpsConPathl = new Gps("$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
+        
+        Drone drone = new Drone();
+        int i;
+       
+        for(i=0;i<10;i++){
+            drone.agregarGPS(gpsConPathl);
+        }
+        
+        for(i=0;i< drone.getGps().size();i++){
+            assertNotNull(drone.getGps().get(i).getLatitud());
+            
+            assertNotNull(drone.getGps().get(i).getLongitud());
+        }
+        
+        
+        
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:

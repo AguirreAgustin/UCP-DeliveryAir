@@ -32,7 +32,10 @@ public class Drone {
         this.getGps().add(pGps);
     }
     
+    /*public ArrayList obtenerListadoPath(){
     
+        this.getGps().l
+    }*/
     
     /*public obtenerListaPath(){
     }*/
