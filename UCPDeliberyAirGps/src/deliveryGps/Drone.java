@@ -18,7 +18,7 @@ public class Drone {
     
     private ArrayList<Gps> gps;
     
-    public Drone() {
+    public Drone(Gps gps) {
         this.setGps(new ArrayList());
     }
     
