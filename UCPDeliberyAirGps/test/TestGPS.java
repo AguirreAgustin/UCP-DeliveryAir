@@ -147,6 +147,7 @@ public class TestGPS {
         String posicionEsperada = gpsUltimo.getPath();
         for(i=0;i< drone.getGps().size();i++){
             posicionActual = drone.getGps().get(i).getPath();
+            System.out.println(i+1 + " - " +drone.getGps().get(i).getPath());
         }
         assertEquals(posicionActual,posicionEsperada);
     
