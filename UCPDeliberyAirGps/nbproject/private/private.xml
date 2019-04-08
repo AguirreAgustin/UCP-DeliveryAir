@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Juan%20Carlos/Documents/IngEnSistemas/IS2/UCP-DeliveryAir/UCPDeliberyAirGps/src/deliveryGps/Gps.java</file>
             <file>file:/C:/Users/Juan%20Carlos/Documents/IngEnSistemas/IS2/UCP-DeliveryAir/UCPDeliberyAirGps/test/TestGPS.java</file>
             <file>file:/C:/Users/Juan%20Carlos/Documents/IngEnSistemas/IS2/UCP-DeliveryAir/UCPDeliberyAirGps/src/deliveryGps/Drone.java</file>
+=======
+            <file>file:/C:/Users/VersaSH/Desktop/GPS-deliveryAir/UCP-DeliveryAir/UCPDeliberyAirGps/src/deliveryGps/Drone.java</file>
+            <file>file:/C:/Users/VersaSH/Desktop/GPS-deliveryAir/UCP-DeliveryAir/UCPDeliberyAirGps/test/TestGPS.java</file>
+>>>>>>> 43050505c25e9bea667208d64ae7b1a54aa1b713
         </group>
     </open-files>
 </project-private>
