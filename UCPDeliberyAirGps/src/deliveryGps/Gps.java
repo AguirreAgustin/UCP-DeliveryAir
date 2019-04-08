@@ -145,13 +145,6 @@ public class Gps {
         this.type = type;
     }
     
-    public String getTimeUTC() {
-        //Convert date into UTC
-        SimpleDateFormat dateFormatter = new SimpleDateFormat(
-                "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        String strUTCDate = dateFormatter.format(this.getTime().getTime());
-        return strUTCDate;
-    }
-
+    
     
 }
