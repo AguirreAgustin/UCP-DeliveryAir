@@ -120,6 +120,14 @@ public class TestDrone {
         assertEquals(posicionActual,posicionEsperada);
     
     }
+    @Test
+    public void obtenerEstadoDeEntrega(){
+    
+        Drone drone1 = new Drone();
+        
+        assertNotNull(drone1.getEstado());
+        
+    }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //

@@ -14,11 +14,41 @@ import java.util.ArrayList;
 public class Drone {
     
     private ArrayList<Gps> gps;
+    private boolean estado;
+    private String entregaId;
+    
     
     public Drone() {
         this.setGps(new ArrayList());
+        this.setEstado(false);
+    }
+    /**
+     * @return the estado
+     */
+    public boolean getEstado() {
+        return estado;
     }
 
+    /**
+     * @param estado the estado to set
+     */
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    /**
+     * @return the entregaId
+     */
+    public String getEntregaId() {
+        return entregaId;
+    }
+
+    /**
+     * @param entregaId the entregaId to set
+     */
+    public void setEntregaId(String entregaId) {
+        this.entregaId = entregaId;
+    }
   
     private void setGps(ArrayList pGps){
         this.gps = pGps;
@@ -40,16 +70,9 @@ public class Drone {
             posicionActual = this.getGps().get(i).getPath();
             
         }
+        
         return posicionActual;
     }
-    /*public ArrayList obtenerListadoPath(){
+
     
-        this.getGps().l
-    }*/
-    
-    /*public obtenerListaPath(){
-    }*/
-    
-    /* prueba de configuracion de usuarios*/
-    private String entregaId;
 }
