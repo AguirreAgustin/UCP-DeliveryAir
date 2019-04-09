@@ -58,28 +58,7 @@ public class TestDrone {
         assertNotNull(drone);
    
     }
-    @Test
-    
-    public void crearGps(){
-    
-        Gps gps1 = new Gps("");
-        
-        assertNotNull(gps1);      
-        
-     
-        
-    }
-    
-    @Test
-    public void crearGpsConPath(){
-    
-        Gps gpsConPathl = new Gps("$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
-        assertEquals(gpsConPathl.getPath(), "$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
-
-       
-    }
-    
-    
+   
     @Test
     public void agregarGPS(){
         
@@ -134,14 +113,6 @@ public class TestDrone {
         assertEquals(posicionActual,posicionEsperada);
     
     }
-    @Test
-    public void obtenerEstadoDeEntrega(){
-        Gps gps = new Gps("");
-        Drone drone1 = new Drone(gps);
-        
-        assertNotNull(drone1.getEstado());
-        
-    }
     
     @Test
     public void obtenerListadoPath(){
@@ -150,8 +121,7 @@ public class TestDrone {
       
   
         Drone drone = new Drone(gps);
-        
-        
+     
          assertEquals(drone.obtenerListadoPath().size(), 1);
    
     }
