@@ -22,6 +22,8 @@ public class Drone {
     public Drone(Gps gps) {
         this.setGps(new ArrayList());
         this.agregarGPS(gps);
+        this.setEstado(false);
+        
     }
     
     /*SETERS Y GETERS*/
