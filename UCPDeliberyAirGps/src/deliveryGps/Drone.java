@@ -94,6 +94,7 @@ public class Drone {
         for(Gps gps : this.getGps()){
             if(gps.getLatitud().equals(this.getLatitud()) && gps.getLongitud().equals(this.getLongitud()) && this.getId().equals(id)){
                 estado = "entregado";
+               
             }
          
         }
