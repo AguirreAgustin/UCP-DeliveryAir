@@ -21,6 +21,7 @@ public class Drone {
     
     public Drone(Gps gps) {
         this.setGps(new ArrayList());
+        this.agregarGPS(gps);
     }
     
     /*SETERS Y GETERS*/
@@ -88,13 +89,19 @@ public class Drone {
         return posicionActual;
     }
 
-    public boolean obtenerEstadoDeEntrega(){
-
-        return this.getEstado();
+    public String obtenerEstadoDeEntrega(String id){
+        String estado = "noEntregado";
+        for(Gps gps : this.getGps()){
+            if(gps.getLatitud().equals(this.getLatitud()) && gps.getLongitud().equals(this.getLongitud()) && this.getId().equals(id)){
+                estado = "entregado";
+            }
+         
+        }
+       return estado;
     }
 
     public ArrayList<String> obtenerListadoPath(){
-        ArrayList<String> listaPath = null;
+        ArrayList<String> listaPath = null; 
         for(Gps gps : this.getGps()){
             String path = gps.getPath();
             listaPath.add(path);

@@ -88,7 +88,7 @@ public class TestDrone {
         
         drone.agregarGPS(gps);
         
-        assertEquals(drone.getGps().size(), 1);
+        assertEquals(drone.getGps().size(), 2);
    
     }
     @Test
@@ -151,8 +151,20 @@ public class TestDrone {
   
         Drone drone = new Drone(gps);
         
-         assertEquals(drone.obtenerListadoPath().size(), null);
+        
+         assertEquals(drone.obtenerListadoPath().size(), 1);
    
+    }
+    
+    @Test
+    public void obtenerEstadoEntrega(){
+         Gps gps = new Gps("$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
+         Drone drone = new Drone(gps);
+         
+         drone.generarEntrega("paquete", "3354.928,N", "08002.498,W");
+         
+     
+         assertEquals(drone.obtenerEstadoDeEntrega("paquete"), "entregado");
     }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
