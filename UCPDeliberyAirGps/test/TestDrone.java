@@ -143,7 +143,7 @@ public class TestDrone {
         
     }
     
-     @Test
+    @Test
     public void obtenerListadoPath(){
         
         Gps gps = new Gps("uno");
@@ -160,9 +160,10 @@ public class TestDrone {
     public void obtenerEstadoEntrega(){
          Gps gps = new Gps("$GPRMC,231220.479,V,3354.928,N,08002.498,W,40.6,2.37,060419,,E*4A");
          Drone drone = new Drone(gps);
-         
-         drone.generarEntrega("paquete", "3354.928,N", "08002.498,W");
-         
+         System.out.println("Latitud: " + drone.getGps().get(0).getLatitud());
+         System.out.println("Longitud: "+ drone.getGps().get(0).getLongitud());
+        // drone.generarEntrega("paquete", "3354.928,N", "08002.498,W");
+         drone.generarEntrega("paquete", "33.915466", "-80.04163");
      
          assertEquals(drone.obtenerEstadoDeEntrega("paquete"), "entregado");
     }
